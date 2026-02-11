@@ -45,16 +45,15 @@
     }
     
     .meter-bar {
-        width: 100%;
-        max-width: 300px; 
-        height: 30px;    
-        background: #ffffff; 
-        border-radius: 20px;
-        border: 3px solid #ffb1c1; 
-        overflow: hidden;
-        margin: 25px 0;
-        position: relative;
-    }
+    width: 100%;
+    max-width: 300px;
+    height: 30px;           
+    background: #ffffff;      
+    border-radius: 20px;
+    border: 3px solid #ffb1c1; 
+    overflow: hidden;
+    margin: 25px 0;
+}
 
     #progress {
         width: 0%; 
@@ -123,6 +122,29 @@
     }
 
     .hidden { display: none; }
+        .reply-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 5px 15px rgba(255, 71, 126, 0.3);
+    transition: transform 0.2s;
+    animation: bounce 2s infinite;
+}
+
+.reply-btn:active {
+    transform: scale(0.9);
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-10px);}
+    60% {transform: translateY(-5px);}
+}
 </style>
 </head>
 <body>
@@ -154,7 +176,11 @@
         
         <p style="margin-top: 40px; padding-bottom: 50px;">I love you more than everything.</p>
     </div>
-
+<div style="margin-top: 30px; padding-bottom: 50px;">
+    <a href="sms:+YOUR_NUMBER?body=..." class="reply-btn">
+        Send me a kiss 💋
+    </a>
+</div>
     <script>
         let progress = 0;
         function fillMeter() {
@@ -186,6 +212,7 @@
     </script>
 </body>
 </html>
+
 
 
 
