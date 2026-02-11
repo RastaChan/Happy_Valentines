@@ -5,95 +5,124 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>For My Favorite Person ❤️</title>
     <style>
-        * {
-            -webkit-tap-highlight-color: transparent; 
-            outline: none;                            
-            box-sizing: border-box;                   
-        }
-        :root {
-            --primary: #ff477e;
-            --bg: #fff0f3;
-            --polaroid-shadow: rgba(0,0,0,0.15);
-        }
-        body {
+    /* 1. Global Reset */
+    * {
+        -webkit-tap-highlight-color: transparent; 
+        outline: none;                            
+        box-sizing: border-box;                   
         margin: 0;
         padding: 0;
+    }
+
+    :root {
+        --primary: #ff477e;
+        --bg: #fff0f3;
+        --polaroid-shadow: rgba(0,0,0,0.15);
+    }
+
+    /* 2. Body - The "Magnet" that centers everything */
+    body {
         background: var(--bg);
         font-family: 'Arial', sans-serif;
-        
-        /* THIS CODE CENTERS THE CONTENT ON PC & LAPTOPS */
         display: flex;
         flex-direction: column;
         align-items: center;    /* Horizontal Center */
         justify-content: center; /* Vertical Center */
         min-height: 100vh;      /* Use the full height of the screen */
+        width: 100%;
         overflow-x: hidden;
     }
 
+    /* 3. Game Section */
     .game-view { 
         text-align: center; 
         width: 90%; 
         max-width: 400px;
-        /* Adds a little breathing room */
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
     }
     
-    /* Ensure the meter bar stays wide enough */
     .meter-bar {
         width: 100%;
         max-width: 350px;
         height: 25px;
-        /* ... rest of your meter code ... */
+        background: #ffe5ec;
+        border-radius: 20px;
+        border: 2px solid #ffb1c1;
+        overflow: hidden;
+        margin: 20px 0;
     }
-        #progress {
-            width: 0%; height: 100%;
-            background: linear-gradient(90deg, #ff85a1, var(--primary));
-            transition: width 0.3s;
-        }
-        .tap-heart {
-            font-size: 80px; cursor: pointer; display: inline-block;
-            transition: transform 0.1s; user-select: none;
-        }
-        .tap-heart:active { transform: scale(0.8); }
 
-        /* --- GALLERY SECTION --- */
-        #secretContent { display: none; width: 100%; padding: 40px 0; text-align: center; }
+    #progress {
+        width: 0%; 
+        height: 100%;
+        background: linear-gradient(90deg, #ff85a1, var(--primary));
+        transition: width 0.3s;
+    }
 
-        .polaroid-stack {
-            display: flex; flex-direction: column; align-items: center; gap: 30px;
-            padding: 20px;
-        }
+    .tap-heart {
+        font-size: 80px; 
+        cursor: pointer; 
+        display: inline-block;
+        transition: transform 0.1s; 
+        user-select: none;
+    }
 
-        .polaroid {
-            background: white;
-            padding: 15px 15px 40px 15px;
-            box-shadow: 0 10px 25px var(--polaroid-shadow);
-            transform: rotate(var(--r)); /* Random rotation for natural look */
-            width: 80%; max-width: 280px;
-            border-radius: 2px;
-            animation: slideUp 0.8s ease-out;
-        }
+    .tap-heart:active { 
+        transform: scale(0.8); 
+    }
 
-        .polaroid img {
-            width: 100%; aspect-ratio: 1/1;
-            object-fit: cover; border: 1px solid #eee;
-        }
+    /* 4. Gallery Section */
+    #secretContent { 
+        display: none; 
+        width: 100%; 
+        padding: 40px 0; 
+        text-align: center; 
+    }
 
-        .polaroid span {
-            display: block; margin-top: 15px;
-            font-family: 'Brush Script MT', cursive; font-size: 1.4rem;
-            color: #444;
-        }
+    .polaroid-stack {
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        gap: 30px;
+        padding: 20px;
+    }
 
-        @keyframes slideUp {
-            from { transform: translateY(50px) rotate(0deg); opacity: 0; }
-            to { transform: translateY(0) rotate(var(--r)); opacity: 1; }
-        }
+    .polaroid {
+        background: white;
+        padding: 15px 15px 40px 15px;
+        box-shadow: 0 10px 25px var(--polaroid-shadow);
+        transform: rotate(var(--r)); 
+        width: 80%; 
+        max-width: 280px;
+        border-radius: 2px;
+        animation: slideUp 0.8s ease-out;
+    }
 
-        .hidden { display: none; }
-    </style>
+    .polaroid img {
+        width: 100%; 
+        aspect-ratio: 1/1;
+        object-fit: cover; 
+        border: 1px solid #eee;
+    }
+
+    .polaroid span {
+        display: block; 
+        margin-top: 15px;
+        font-family: 'Brush Script MT', cursive; 
+        font-size: 1.4rem;
+        color: #444;
+    }
+
+    @keyframes slideUp {
+        from { transform: translateY(50px) rotate(0deg); opacity: 0; }
+        to { transform: translateY(0) rotate(var(--r)); opacity: 1; }
+    }
+
+    .hidden { display: none; }
+</style>
 </head>
 <body>
 
@@ -156,6 +185,7 @@
     </script>
 </body>
 </html>
+
 
 
 
