@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>For My Favorite Person ❤️</title>
+    <style>
+        :root {
+            --primary: #ff477e;
+            --bg: #fff0f3;
+            --polaroid-shadow: rgba(0,0,0,0.15);
+        }
+
+        body {
+            margin: 0; padding: 0;
+            background: var(--bg);
+            font-family: 'Arial', sans-serif;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            min-height: 100vh; overflow-x: hidden;
+        }
+
+        /* --- GAME SECTION --- */
+        .game-view { text-align: center; width: 90%; max-width: 400px; }
+        .meter-bar {
+            width: 100%; height: 25px; background: #ffe5ec;
+            border-radius: 20px; border: 2px solid #ffb1c1;
+            overflow: hidden; margin: 20px 0;
+        }
+        #progress {
+            width: 0%; height: 100%;
+            background: linear-gradient(90deg, #ff85a1, var(--primary));
+            transition: width 0.3s;
+        }
+        .tap-heart {
+            font-size: 80px; cursor: pointer; display: inline-block;
+            transition: transform 0.1s; user-select: none;
+        }
+        .tap-heart:active { transform: scale(0.8); }
+
+        /* --- GALLERY SECTION --- */
+        #secretContent { display: none; width: 100%; padding: 40px 0; text-align: center; }
+
+        .polaroid-stack {
+            display: flex; flex-direction: column; align-items: center; gap: 30px;
+            padding: 20px;
+        }
+
+        .polaroid {
+            background: white;
+            padding: 15px 15px 40px 15px;
+            box-shadow: 0 10px 25px var(--polaroid-shadow);
+            transform: rotate(var(--r)); /* Random rotation for natural look */
+            width: 80%; max-width: 280px;
+            border-radius: 2px;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        .polaroid img {
+            width: 100%; aspect-ratio: 1/1;
+            object-fit: cover; border: 1px solid #eee;
+        }
+
+        .polaroid span {
+            display: block; margin-top: 15px;
+            font-family: 'Brush Script MT', cursive; font-size: 1.4rem;
+            color: #444;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px) rotate(0deg); opacity: 0; }
+            to { transform: translateY(0) rotate(var(--r)); opacity: 1; }
+        }
+
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="game-view" id="gameView">
+        <h2 style="color: var(--primary);">Unlock Our Memories</h2>
+        <div class="meter-bar"><div id="progress"></div></div>
+        <div class="tap-heart" onclick="fillMeter()">💖</div>
+        <p style="color: #888;">Tap to fill the heart!</p>
+    </div>
+
+    <div id="secretContent">
+        <h1 style="color: var(--primary);">Happy Valentine's Day! 🌹</h1>
+        <p>You filled my heart. Here's to us...</p>
+
+        <div class="polaroid-stack">
+            <div class="polaroid" style="--r: -3deg;">
+                <img src="photo1.jpeg" alt="Our first date"> <span>The beginning...</span>
+            </div>
+
+            <div class="polaroid" style="--r: 2deg;">
+                <img src="photo2.jpg" alt="Sweet moment"> <span>My favorite smile ❤️</span>
+            </div>
+
+            <div class="polaroid" style="--r: -1deg;">
+                <img src="photo3.jpeg" alt="Adventure"> <span>Always you.</span>
+            </div>
+        </div>
+        
+        <p style="margin-top: 40px; padding-bottom: 50px;">I love you more than everything.</p>
+    </div>
+
+    <script>
+        let progress = 0;
+        function fillMeter() {
+            if (progress < 100) {
+                progress += 10;
+                document.getElementById('progress').style.width = progress + '%';
+                spawnHeart();
+                
+                if (progress >= 100) {
+                    setTimeout(() => {
+                        document.getElementById('gameView').style.display = 'none';
+                        document.getElementById('secretContent').style.display = 'block';
+                        document.body.style.overflowY = 'auto'; // Let her scroll the photos
+                    }, 500);
+                }
+            }
+        }
+
+        function spawnHeart() {
+            const h = document.createElement('div');
+            h.innerText = '❤️';
+            h.style.cssText = `position:fixed; left:50%; top:50%; font-size:24px; pointer-events:none; z-index:10;`;
+            document.body.appendChild(h);
+            h.animate([
+                { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
+                { transform: `translate(${(Math.random()-0.5)*400}px, -300px) scale(0)`, opacity: 0 }
+            ], { duration: 1000 }).onfinish = () => h.remove();
+        }
+    </script>
+</body>
+</html>
