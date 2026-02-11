@@ -20,15 +20,15 @@
         --polaroid-shadow: rgba(0,0,0,0.15);
     }
 
-    /* 2. Body - The "Magnet" that centers everything */
+    /* 2. Body - Centers everything */
     body {
         background: var(--bg);
         font-family: 'Arial', sans-serif;
         display: flex;
         flex-direction: column;
-        align-items: center;    /* Horizontal Center */
-        justify-content: center; /* Vertical Center */
-        min-height: 100vh;      /* Use the full height of the screen */
+        align-items: center;    
+        justify-content: center; 
+        min-height: 100vh;      
         width: 100%;
         overflow-x: hidden;
     }
@@ -47,8 +47,8 @@
     .meter-bar {
         width: 100%;
         max-width: 300px;
-        height: 30px;           /* Thick enough to see */
-        background: #ffffff;      /* White inside to stand out */
+        height: 30px;           
+        background: #ffffff;      
         border-radius: 20px;
         border: 3px solid #ffb1c1; 
         overflow: hidden;
@@ -121,7 +121,6 @@
         to { transform: translateY(0) rotate(var(--r)); opacity: 1; }
     }
 
-    /* Reply Button Style */
     .reply-btn {
         display: inline-block;
         padding: 15px 30px;
@@ -178,7 +177,7 @@
         <p style="margin-top: 40px;">I love you more than everything.</p>
         
         <div style="margin-top: 30px; padding-bottom: 50px;">
-            <a href="sms:09506972820?body=I%20just%20saw%20the%20surprise!%20I%20love%20it%20so%20much%20❤️" class="reply-btn">
+            <a href="sms:+639506272820?body=I%20just%20saw%20the%20surprise!%20I%20love%20it%20so%20much%20❤️" class="reply-btn">
                 Send me a kiss 💋
             </a>
         </div>
@@ -196,7 +195,7 @@
                     setTimeout(() => {
                         document.getElementById('gameView').style.display = 'none';
                         document.getElementById('secretContent').style.display = 'block';
-                        document.body.style.justifyContent = 'flex-start'; // Allow scrolling
+                        document.body.style.justifyContent = 'flex-start'; 
                         document.body.style.overflowY = 'auto'; 
                     }, 500);
                 }
@@ -216,4 +215,3 @@
     </script>
 </body>
 </html>
-
